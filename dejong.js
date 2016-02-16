@@ -68,7 +68,7 @@ setInterval(function() {
     r = Math.floor(Math.abs(x) * 100);
     b = Math.floor(Math.abs(y) * 100);
     if (click === 1) {
-      g = Math.floor(mouseX / 5);
+      g = Math.floor(mouseX / 12);
     } else {
       g = 40;
     }
