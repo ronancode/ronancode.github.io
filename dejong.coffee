@@ -4,6 +4,9 @@ a = Math.random() * 4
 e = Math.random() * 4
 c = Math.random() * 4
 d = Math.random() * 4
+mouseX = 0
+mouseY = 0
+speed = 100
 i = 0
 flage = 0
 flagg = 0
@@ -21,18 +24,24 @@ context = canvas.node().getContext('2d')
 context.translate(width / 2, height / 2)
 context.scale(60, 60)
 document.addEventListener('click', ->
- console.log("a #{a} e #{e} c #{c} d #{d}")
+  a = Math.random() * 4
+  e = Math.random() * 4
+  c = Math.random() * 4
+  d = Math.random() * 4
 )
 
-# d3.timer ->
+document.addEventListener("mousemove", (e) -> 
+ mouseX = event.pageX
+ mouseY = event.pageY)
+
 setInterval( ->
     context.globalCompositeOperation = 'source-over'
     context.fillStyle = "rgba(0,0,0,0.2)"
     context.fillRect(-500, -500, 1000, 1000)
     context.globalCompositeOperation = 'lighter'
     while i < 7000
-      r = Math.floor(Math.abs(x) * 150)
-      b = Math.floor(Math.abs(y) * 150)
+      r = Math.floor(Math.abs(x) * 100)
+      b = Math.floor(Math.abs(y) * 100)
       context.fillStyle = "rgba(#{r}, 40, #{b}, 1)"
       [x, y] = dejong(x, y)
       i++
@@ -40,24 +49,25 @@ setInterval( ->
       context.stroke()
       context.restore()
     i = 0
+    speed = (mouseY + 1)/10
     if (flage == 0)
-      e += (Math.random()/100)
+      e += (Math.random()/speed)
     else 
-      e -= (Math.random()/100)
+      e -= (Math.random()/speed)
     if (flagg == 0)
-      d -= (Math.random()/100)
+      d -= (Math.random()/speed)
     else
-      d += (Math.random()/100)
+      d += (Math.random()/speed)
     if (e > 4)
-      a = a + (Math.random()/100)
+      a = a + (Math.random()/speed)
       flage = 1
     else if (e < -4)
-      a = a - (Math.random()/100)
+      a = a - (Math.random()/speed)
       flage = 0
     if (d < -4)
-      c = c + (Math.random()/100)
+      c = c + (Math.random()/speed)
       flagg = 1
     else if (d > 4)
-      c = c - (Math.random()/100)
+      c = c - (Math.random()/speed)
       flagg = 0
 , 7)
