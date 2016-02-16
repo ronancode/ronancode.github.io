@@ -1,4 +1,4 @@
-var a, c, canvas, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y;
+var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y;
 
 x = 1;
 
@@ -11,6 +11,8 @@ e = Math.random() * 4;
 c = Math.random() * 4;
 
 d = Math.random() * 4;
+
+click = 0;
 
 mouseX = 0;
 
@@ -47,7 +49,8 @@ document.addEventListener('click', function() {
   a = Math.random() * 4;
   e = Math.random() * 4;
   c = Math.random() * 4;
-  return d = Math.random() * 4;
+  d = Math.random() * 4;
+  return click = 1;
 });
 
 document.addEventListener("mousemove", function(e) {
@@ -56,7 +59,7 @@ document.addEventListener("mousemove", function(e) {
 });
 
 setInterval(function() {
-  var b, r, ref;
+  var b, g, r, ref;
   context.globalCompositeOperation = 'source-over';
   context.fillStyle = "rgba(0,0,0,0.2)";
   context.fillRect(-500, -500, 1000, 1000);
@@ -64,7 +67,12 @@ setInterval(function() {
   while (i < 7000) {
     r = Math.floor(Math.abs(x) * 100);
     b = Math.floor(Math.abs(y) * 100);
-    context.fillStyle = "rgba(" + r + ", 40, " + b + ", 1)";
+    if (click === 1) {
+      g = Math.floor(mouseX / 5);
+    } else {
+      g = 40;
+    }
+    context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
     ref = dejong(x, y), x = ref[0], y = ref[1];
     i++;
     context.fillRect(x, y, 0.01, 0.01);
@@ -72,7 +80,6 @@ setInterval(function() {
     context.restore();
   }
   i = 0;
-  speed = (mouseY + 1) / 10;
   if (flage === 0) {
     e += Math.random() / speed;
   } else {

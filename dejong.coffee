@@ -4,6 +4,7 @@ a = Math.random() * 4
 e = Math.random() * 4
 c = Math.random() * 4
 d = Math.random() * 4
+click = 0
 mouseX = 0
 mouseY = 0
 speed = 100
@@ -20,7 +21,6 @@ width = 750
 height = 750
 canvas = d3.select('body').append('canvas').attr('width', width).attr('height', height)
 context = canvas.node().getContext('2d')
-# context.globalCompositeOperation = 'lighter'
 context.translate(width / 2, height / 2)
 context.scale(60, 60)
 document.addEventListener('click', ->
@@ -28,6 +28,8 @@ document.addEventListener('click', ->
   e = Math.random() * 4
   c = Math.random() * 4
   d = Math.random() * 4
+  click = 1
+#  console.log("blah")
 )
 
 document.addEventListener("mousemove", (e) -> 
@@ -42,14 +44,17 @@ setInterval( ->
     while i < 7000
       r = Math.floor(Math.abs(x) * 100)
       b = Math.floor(Math.abs(y) * 100)
-      context.fillStyle = "rgba(#{r}, 40, #{b}, 1)"
+      if (click == 1)
+        g = Math.floor((mouseX)/5)
+      else
+        g = 40
+      context.fillStyle = "rgba(#{r}, #{g}, #{b}, 1)"
       [x, y] = dejong(x, y)
       i++
       context.fillRect(x, y, 0.01, 0.01)
       context.stroke()
       context.restore()
     i = 0
-    speed = (mouseY + 1)/10
     if (flage == 0)
       e += (Math.random()/speed)
     else 
