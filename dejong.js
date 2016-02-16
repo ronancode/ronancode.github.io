@@ -69,17 +69,17 @@ setInterval(function() {
     d += Math.random() / 100;
   }
   if (e > 4) {
-    a = a + (Math.random() / 100);
+    a = a + (Math.random() / 10);
     flage = 1;
   } else if (e < -4) {
-    a = a - (Math.random() / 100);
+    a = a - (Math.random() / 10);
     flage = 0;
   }
   if (d < -4) {
-    c = c + (Math.random() / 100);
+    c = c + (Math.random() / 10);
     return flagg = 1;
   } else if (d > 4) {
-    c = c - (Math.random() / 100);
+    c = c - (Math.random() / 10);
     return flagg = 0;
   }
 }, 7);
