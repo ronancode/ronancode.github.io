@@ -67,11 +67,7 @@ setInterval(function() {
   while (i < 7000) {
     r = Math.floor(Math.abs(x) * 100);
     b = Math.floor(Math.abs(y) * 100);
-    if (click === 1) {
-      g = Math.floor(mouseX / 12);
-    } else {
-      g = 40;
-    }
+    g = Math.floor(Math.abs(x + y) * 50);
     context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
     ref = dejong(x, y), x = ref[0], y = ref[1];
     i++;
