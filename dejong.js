@@ -1,8 +1,9 @@
-var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorrb, colorg, trail, t;
+ var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorr, colorb, colorg, trail;
 
 //presets: (colorrb : 100, colorg : 0) (colorrb: 160, colorg: 80)
 
-colorrb = 160;
+colorr = 160;
+colorb = 160;
 colorg = 80;
 
 x = 1;
@@ -55,6 +56,10 @@ document.addEventListener('click', function() {
   e = Math.random() * 4;
   c = Math.random() * 4;
   d = Math.random() * 4;
+  colorr = Math.random() * 200;
+  colorb = Math.random() * 200;
+  colorg = Math.random() * 200;
+  /*
   click = Math.random() * 2;
   click = Math.floor(click);
     if (click == 0) {
@@ -65,7 +70,8 @@ document.addEventListener('click', function() {
     colorrb = 160;
     colorg = 0;
   }
-  //return console.log("trail: ", trail);
+  */
+  //return console.log("colors: " + colorr + " " + colorb + " " + colorg);
 });
 
 //document.addEventListener("mousemove", function(e) {
@@ -80,8 +86,8 @@ setInterval(function() {
   context.fillRect(-500, -500, 1000, 1000);
   context.globalCompositeOperation = 'lighter';
   while (i < 7000) {
-    r = Math.floor(Math.abs(x) * colorrb);
-    b = Math.floor(Math.abs(y) * colorrb);
+    r = Math.floor(Math.abs(x) * colorr);
+    b = Math.floor(Math.abs(y) * colorb);
     g = Math.floor(Math.abs(x + y) * colorg);
     context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
     ref = dejong(x, y);
