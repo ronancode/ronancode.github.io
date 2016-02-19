@@ -29,7 +29,7 @@ document.addEventListener('click', ->
   c = Math.random() * 4
   d = Math.random() * 4
   click = 1
-#  console.log("blah")
+  console.log("blah")
 )
 
 document.addEventListener("mousemove", (e) -> 
