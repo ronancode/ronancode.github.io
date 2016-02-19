@@ -109,7 +109,7 @@ setInterval(function() {
     c = c - (Math.random() / speed);
     flagg = 0;
   }
-  trail = (Math.sin(Math.abs(a))/2)+1;
+  trail = (Math.sin(Math.abs(a))/2)+0.5;
   //trail = 0.5;
 }, 0);
 
