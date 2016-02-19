@@ -1,9 +1,8 @@
-var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorrb, colorg, trail;
+var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorrb, colorg, trail, t;
 
 //presets: (colorrb : 100, colorg : 0) (colorrb: 160, colorg: 80)
 
 colorrb = 160;
-
 colorg = 80;
 
 x = 1;
@@ -56,14 +55,23 @@ document.addEventListener('click', function() {
   e = Math.random() * 4;
   c = Math.random() * 4;
   d = Math.random() * 4;
-  click = 1;
-  return console.log("trail: ", trail);
+  click = Math.random() * 2;
+  click = Math.floor(click);
+    if (click == 0) {
+    colorrb = 160;
+    colorg = 80;
+  }
+  else {
+    colorrb = 160;
+    colorg = 0;
+  }
+  //return console.log("trail: ", trail);
 });
 
-document.addEventListener("mousemove", function(e) {
-  mouseX = event.pageX;
-  mouseY = event.pageY;
-});
+//document.addEventListener("mousemove", function(e) {
+//  mouseX = event.pageX;
+//  mouseY = event.pageY;
+//});
 
 setInterval(function() {
   var b, g, r, ref;
@@ -109,8 +117,7 @@ setInterval(function() {
     c = c - (Math.random() / speed);
     flagg = 0;
   }
-  trail = (Math.sin(Math.abs(20*a))/2)+0.5;
-  //trail = 0.5;
+  trail = (Math.sin(2*e)/2.2)+0.5;
 }, 0);
 
 // ---
