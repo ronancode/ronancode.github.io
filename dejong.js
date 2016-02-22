@@ -1,4 +1,4 @@
-var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorr, colorb, colorg, trail, ms, pixels;
+var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, opt, colorr, colorb, colorg, trail, ms, pixels;
 
 colorr = 160;
 colorb = 160;
@@ -30,11 +30,25 @@ flage = 0;
 
 flagg = 0;
 
-dejong = function(x, y) {
-  var x2, y2;
-  x2 = Math.sin(a * y) + (c * Math.cos(a * x));
-  y2 = Math.sin(e * x) + (d * Math.cos(e * y));
-  return [x2, y2];
+opt = 0;
+
+attractor = function(x, y, opt) {
+  if (opt == 0) {
+    var x2 = Math.sin(a * y) + (c * Math.cos(a * x));
+    var y2 = Math.sin(e * x) + (d * Math.cos(e * y));
+    return [x2, y2];
+  }
+  else {
+    var x2 = Math.sin(a * y) - (Math.cos(c * x));
+    var y2 = Math.sin(e * x) - (Math.cos(d * y));
+    return [x2, y2];
+  }
+  // else {
+  //   var x2 = Math.pow(x,2) - Math.pow(y,2) + (a * x) + (e * y);
+  //   var y2 = (2 * x * y) + (c * x) + (d * y);
+  //   console.log("test" + x2 + y2);
+  //   return [x2, y2];
+  // }
 };
 
 height = window.innerHeight;
@@ -63,7 +77,8 @@ document.addEventListener('click', function() {
   e = Math.random() * 4;
   c = Math.random() * 4;
   d = Math.random() * 4;
-  return console.log("pixels: " + pixels);
+  opt = Math.floor(Math.random() * 3);
+  //return console.log("pixels: " + pixels);
 });
 
 document.addEventListener('contextmenu', function() {
@@ -115,7 +130,7 @@ setInterval(function() {
       b = Math.floor(Math.abs(y) * colorb);
       g = Math.floor(Math.abs(x + y) * colorg);
       context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
-      ref = dejong(x, y);
+      ref = attractor(x, y, opt);
       x = ref[0];
       y = ref[1];
       context.fillRect(x, y, pixels, pixels);
