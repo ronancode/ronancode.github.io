@@ -1,4 +1,4 @@
-var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorr, colorb, colorg, trail;
+var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorr, colorb, colorg, trail, ms;
 
 colorr = 160;
 colorb = 160;
@@ -99,18 +99,19 @@ setInterval(function() {
   context.fillStyle = "rgba(0,0,0," + trail + ")";
   context.fillRect(-500, -500, 1000, 1000);
   context.globalCompositeOperation = 'lighter';
-  while (i < 7000) {
-    r = Math.floor(Math.abs(x) * colorr);
-    b = Math.floor(Math.abs(y) * colorb);
-    g = Math.floor(Math.abs(x + y) * colorg);
-    context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
-    ref = dejong(x, y);
-    x = ref[0];
-    y = ref[1];
-    i++;
-    context.fillRect(x, y, 0.01, 0.01);
-    context.stroke();
-    context.restore();
+  ms = (new Date).getTime();
+  while (((new Date).getTime() - ms) < 20) {
+    for (var i=0;i < 11;i++) {
+      r = Math.floor(Math.abs(x) * colorr);
+      b = Math.floor(Math.abs(y) * colorb);
+      g = Math.floor(Math.abs(x + y) * colorg);
+      context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
+      ref = dejong(x, y);
+      x = ref[0];
+      y = ref[1];
+      context.fillRect(x, y, 0.01, 0.01);
+      context.stroke();
+      context.restore();
+    }
   }
-  i = 0;
 }, 0);
