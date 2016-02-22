@@ -1,4 +1,4 @@
-var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorr, colorb, colorg, trail, ms;
+var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, colorr, colorb, colorg, trail, ms, pixels;
 
 colorr = 160;
 colorb = 160;
@@ -37,9 +37,18 @@ dejong = function(x, y) {
   return [x2, y2];
 };
 
-width = 1000;
+height = window.innerHeight;
 
-height = 1000;
+width = window.innerWidth;
+
+if (height > width) {
+  width = height;
+}
+else {
+  height = width;
+}
+
+pixels = 10/width;
 
 canvas = d3.select('body').append('canvas').attr('width', width).attr('height', height);
 
@@ -47,18 +56,18 @@ context = canvas.node().getContext('2d');
 
 context.translate(width / 2, height / 2);
 
-context.scale(100, 100);
+context.scale(150, 150);
 
 document.addEventListener('click', function() {
   a = Math.random() * 4;
   e = Math.random() * 4;
   c = Math.random() * 4;
   d = Math.random() * 4;
-  //return console.log("colors: " + colorr + " " + colorb + " " + colorg);
+  return console.log("pixels: " + pixels);
 });
 
 document.addEventListener('contextmenu', function() {
-   colorr = Math.random() * 200;
+  colorr = Math.random() * 200;
   colorb = Math.random() * 200;
   colorg = Math.random() * 200;
 });
@@ -100,8 +109,8 @@ setInterval(function() {
   context.fillRect(-500, -500, 1000, 1000);
   context.globalCompositeOperation = 'lighter';
   ms = (new Date).getTime();
-  while (((new Date).getTime() - ms) < 20) {
-    for (var i=0;i < 11;i++) {
+  while (((new Date).getTime() - ms) < 25) {
+    for (var i=0;i < 101;i++) {
       r = Math.floor(Math.abs(x) * colorr);
       b = Math.floor(Math.abs(y) * colorb);
       g = Math.floor(Math.abs(x + y) * colorg);
@@ -109,7 +118,7 @@ setInterval(function() {
       ref = dejong(x, y);
       x = ref[0];
       y = ref[1];
-      context.fillRect(x, y, 0.01, 0.01);
+      context.fillRect(x, y, pixels, pixels);
       context.stroke();
       context.restore();
     }
