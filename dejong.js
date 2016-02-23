@@ -56,18 +56,11 @@ attractor = function(x, y, opt) {
   // }
 };
 
-height = window.innerHeight;
+height = Math.floor(window.innerHeight/10)*10;
 
-width = window.innerWidth;
+width = Math.floor(window.innerWidth/10)*10;
 
-if (height > width) {
-  width = height;
-}
-else {
-  height = width;
-}
-
-pixels = 10/width;
+pixels = 0.004; //10/width;
 
 canvas = d3.select('body').append('canvas').attr('width', width).attr('height', height);
 
@@ -75,7 +68,8 @@ context = canvas.node().getContext('2d');
 
 context.translate(width / 2, height / 2);
 
-context.scale(100, 100);
+//context.scale(150, 150);
+context.scale(130,130);
 
 document.addEventListener('click', function() {
   a = Math.random() * 4;
@@ -90,7 +84,6 @@ document.addEventListener('contextmenu', function() {
   colorr = Math.random() * 300;
   colorb = Math.random() * 300;
   colorg = Math.random() * 300;
-  return console.log("colors: " + colorr + " " + colorb + " " + colorg)
 });
 
 //document.addEventListener("mousemove", function(e) {
