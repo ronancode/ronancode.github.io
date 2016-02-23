@@ -9,11 +9,8 @@ x = 1;
 y = 1;
 
 a = Math.random() * 4;
-
 e = Math.random() * 4;
-
 c = Math.random() * 4;
-
 d = Math.random() * 4;
 
 click = 0;
@@ -84,6 +81,7 @@ document.addEventListener('contextmenu', function() {
   colorr = Math.random() * 300;
   colorb = Math.random() * 300;
   colorg = Math.random() * 300;
+  document.getElementById("colorp").innerHTML = "r: " + colorr.toFixed(2) + " g: " + colorg.toFixed(2) + " b: " + colorb.toFixed(2);
 });
 
 //document.addEventListener("mousemove", function(e) {
@@ -93,7 +91,15 @@ document.addEventListener('contextmenu', function() {
 
 setInterval(function() {
   var b, g, r, ref;
-    if (flage === 0) {
+  if (opt == 0) {
+    document.getElementById("attractorp1").innerHTML = "x2=sin(" + a.toFixed(2) + "y)-cos(" + c.toFixed(2) + "x)";
+    document.getElementById("attractorp2").innerHTML = "y2=sin(" + e.toFixed(2) + "x)-cos(" + d.toFixed(2) + "y)";
+  }
+  else {
+    document.getElementById("attractorp1").innerHTML = "x2=" + d.toFixed(2) + "cos(" + a.toFixed(2) + "y)-cos(" + e.toFixed(2) + "x)";
+    document.getElementById("attractorp2").innerHTML = "y2=" + c.toFixed(2) + "cos(" + a.toFixed(2) + "y)-cos(" + e.toFixed(2) + "x)";    
+  }
+  if (flage === 0) {
     e += Math.random() / speed;
   } else {
     e -= Math.random() / speed;
