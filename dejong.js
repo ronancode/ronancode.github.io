@@ -30,17 +30,22 @@ flage = 0;
 
 flagg = 0;
 
-opt = 0;
+opt = 1;
 
 attractor = function(x, y, opt) {
-  if (opt == 0) {
+  if (opt == 0) {       //Clifford
     var x2 = Math.sin(a * y) + (c * Math.cos(a * x));
     var y2 = Math.sin(e * x) + (d * Math.cos(e * y));
     return [x2, y2];
   }
-  else {
+  else if (opt == 1) {      //Dejong
     var x2 = Math.sin(a * y) - (Math.cos(c * x));
     var y2 = Math.sin(e * x) - (Math.cos(d * y));
+    return [x2, y2];
+  }
+  else if (opt == 2) {
+    var x2 = (d * Math.sin(a * y)) - (Math.sin(e * x));
+    var y2 = (c * Math.cos(a * x)) + (Math.cos(e * y));
     return [x2, y2];
   }
   // else {
@@ -77,7 +82,11 @@ document.addEventListener('click', function() {
   e = Math.random() * 4;
   c = Math.random() * 4;
   d = Math.random() * 4;
-  opt = Math.floor(Math.random() * 3);
+  //opt = Math.floor(Math.random() * 3);
+  opt++;
+  if (opt > 2) {
+    opt = 0;
+  }
   //return console.log("pixels: " + pixels);
 });
 
