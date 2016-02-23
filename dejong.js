@@ -33,17 +33,17 @@ flagg = 0;
 opt = 1;
 
 attractor = function(x, y, opt) {
-  if (opt == 0) {       //Clifford
-    var x2 = Math.sin(a * y) + (c * Math.cos(a * x));
-    var y2 = Math.sin(e * x) + (d * Math.cos(e * y));
-    return [x2, y2];
-  }
-  else if (opt == 1) {      //Dejong
+  // if (opt == 0) {       //Clifford
+  //   var x2 = Math.sin(a * y) + (c * Math.cos(a * x));
+  //   var y2 = Math.sin(e * x) + (d * Math.cos(e * y));
+  //   return [x2, y2];
+  // }
+  if (opt == 0) {      //Dejong
     var x2 = Math.sin(a * y) - (Math.cos(c * x));
     var y2 = Math.sin(e * x) - (Math.cos(d * y));
     return [x2, y2];
   }
-  else if (opt == 2) {
+  else {
     var x2 = (d * Math.sin(a * y)) - (Math.sin(e * x));
     var y2 = (c * Math.cos(a * x)) + (Math.cos(e * y));
     return [x2, y2];
@@ -75,25 +75,22 @@ context = canvas.node().getContext('2d');
 
 context.translate(width / 2, height / 2);
 
-context.scale(150, 150);
+context.scale(100, 100);
 
 document.addEventListener('click', function() {
   a = Math.random() * 4;
   e = Math.random() * 4;
   c = Math.random() * 4;
   d = Math.random() * 4;
-  //opt = Math.floor(Math.random() * 3);
-  opt++;
-  if (opt > 2) {
-    opt = 0;
-  }
+  opt = Math.floor(Math.random() * 2)
   //return console.log("pixels: " + pixels);
 });
 
 document.addEventListener('contextmenu', function() {
-  colorr = Math.random() * 200;
-  colorb = Math.random() * 200;
-  colorg = Math.random() * 200;
+  colorr = Math.random() * 300;
+  colorb = Math.random() * 300;
+  colorg = Math.random() * 300;
+  return console.log("colors: " + colorr + " " + colorb + " " + colorg)
 });
 
 //document.addEventListener("mousemove", function(e) {
@@ -127,13 +124,13 @@ setInterval(function() {
     c = c - (Math.random() / speed);
     flagg = 0;
   }
-  trail = (Math.sin(2*e)/2.2)+0.5;
+  trail = (Math.sin(e)/4.2)+0.3;
   context.globalCompositeOperation = 'source-over';
   context.fillStyle = "rgba(0,0,0," + trail + ")";
   context.fillRect(-500, -500, 1000, 1000);
   context.globalCompositeOperation = 'lighter';
   ms = (new Date).getTime();
-  while (((new Date).getTime() - ms) < 25) {
+  while (((new Date).getTime() - ms) < 28) {
     for (var i=0;i < 101;i++) {
       r = Math.floor(Math.abs(x) * colorr);
       b = Math.floor(Math.abs(y) * colorb);
