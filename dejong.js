@@ -1,11 +1,11 @@
 var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, opt, colorr, colorb, colorg, trail, ms, pixels;
+var count = 0;
 
 colorr = 160;
 colorb = 160;
 colorg = 80;
 
 x = 1;
-
 y = 1;
 
 a = Math.random() * 4;
@@ -15,26 +15,19 @@ d = Math.random() * 4;
 
 click = 0;
 
-mouseX = 0;
-
-mouseY = 0;
+// mouseX = 0;
+// mouseY = 0;
 
 speed = 100;
 
 i = 0;
 
 flage = 0;
-
 flagg = 0;
 
 opt = 1;
 
 attractor = function(x, y, opt) {
-  // if (opt == 0) {       //Clifford
-  //   var x2 = Math.sin(a * y) + (c * Math.cos(a * x));
-  //   var y2 = Math.sin(e * x) + (d * Math.cos(e * y));
-  //   return [x2, y2];
-  // }
   if (opt == 0) {      //Dejong
     var x2 = Math.sin(a * y) - (Math.cos(c * x));
     var y2 = Math.sin(e * x) - (Math.cos(d * y));
@@ -45,19 +38,13 @@ attractor = function(x, y, opt) {
     var y2 = (c * Math.cos(a * x)) + (Math.cos(e * y));
     return [x2, y2];
   }
-  // else {
-  //   var x2 = Math.pow(x,2) - Math.pow(y,2) + (a * x) + (e * y);
-  //   var y2 = (2 * x * y) + (c * x) + (d * y);
-  //   console.log("test" + x2 + y2);
-  //   return [x2, y2];
-  // }
 };
 
 height = Math.floor(window.innerHeight/10)*10;
 
 width = Math.floor(window.innerWidth/10)*10;
 
-pixels = 0.004; //10/width;
+pixels = 0.006; //10/width;
 
 canvas = d3.select('body').append('canvas').attr('width', width).attr('height', height);
 
@@ -65,7 +52,6 @@ context = canvas.node().getContext('2d');
 
 context.translate(width / 2, height / 2);
 
-//context.scale(150, 150);
 context.scale(130,130);
 
 document.addEventListener('click', function() {
@@ -82,6 +68,19 @@ document.addEventListener('contextmenu', function() {
   colorb = Math.random() * 300;
   colorg = Math.random() * 300;
   document.getElementById("colorp").innerHTML = "r: " + colorr.toFixed(2) + " g: " + colorg.toFixed(2) + " b: " + colorb.toFixed(2);
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode == 32) {
+    if (count == 0) {
+      context.scale(80,80);      
+    }
+    else {
+      context.scale(0.0125, 0.0125);
+    }
+    count = !count;
+  }
+  //return console.log("event.keyCode " + event.keyCode);
 });
 
 //document.addEventListener("mousemove", function(e) {
@@ -126,7 +125,7 @@ setInterval(function() {
   trail = (Math.sin(e)/4.2)+0.3;
   context.globalCompositeOperation = 'source-over';
   context.fillStyle = "rgba(0,0,0," + trail + ")";
-  context.fillRect(-500, -500, 1000, 1000);
+  context.fillRect(-(width/2), -(height/2), width, height);
   context.globalCompositeOperation = 'lighter';
   ms = (new Date).getTime();
   while (((new Date).getTime() - ms) < 28) {
