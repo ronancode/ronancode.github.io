@@ -3,11 +3,12 @@
 <body oncontextmenu="return false;">
 <style>
 html {
-  height: 90%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
 }
 body {
   background-color: #000;
+  overflow: hidden;
   color: #aaaaaa;
   font-size: 65%;
   font-family: courier;
@@ -17,6 +18,7 @@ body {
 }
 canvas {
   position: absolute;
+  cursor: none;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

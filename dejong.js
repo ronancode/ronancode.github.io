@@ -40,9 +40,9 @@ attractor = function(x, y, opt) {
   }
 };
 
-height = Math.floor(window.innerHeight/10)*10;
+height = (Math.floor(window.innerHeight/10)*10) + 200;
 
-width = Math.floor(window.innerWidth/10)*10;
+width = (Math.floor(window.innerWidth/10)*10) + 100;
 
 pixels = 0.006; //10/width;
 
