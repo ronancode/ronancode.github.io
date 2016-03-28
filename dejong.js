@@ -27,7 +27,7 @@ flagg = 0;
 
 opt = 1;
 
-white = 1;
+white = 0;
 
 attractor = function(x, y, opt) {
   if (opt == 0) {      //Dejong
@@ -84,9 +84,9 @@ document.addEventListener('keydown', function(event) {
   }
   if (event.keyCode == 87) {
     white = !white;
-    return console.log('white: ' + white);
+    //return console.log('white: ' + white);
   }
-  return console.log("event.keyCode " + event.keyCode);
+  //return console.log("event.keyCode " + event.keyCode);
 });
 
 //document.addEventListener("mousemove", function(e) {
