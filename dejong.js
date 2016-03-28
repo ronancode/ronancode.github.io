@@ -27,7 +27,7 @@ flagg = 0;
 
 opt = 1;
 
-white = 0
+white = 1;
 
 attractor = function(x, y, opt) {
   if (opt == 0) {      //Dejong
