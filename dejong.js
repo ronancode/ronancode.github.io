@@ -84,8 +84,9 @@ document.addEventListener('keydown', function(event) {
   }
   else if (event.keycode == 119) {
     white = !white;
+
   }
-  //return console.log("event.keyCode " + event.keyCode);
+  return console.log("event.keyCode " + event.keyCode);
 });
 
 //document.addEventListener("mousemove", function(e) {
