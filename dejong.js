@@ -82,7 +82,7 @@ document.addEventListener('keydown', function(event) {
     }
     count = !count;
   }
-  else if (event.keycode == 119) {
+  else if (event.keycode == 87) {
     white = !white;
 
   }
