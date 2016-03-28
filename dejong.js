@@ -131,12 +131,13 @@ setInterval(function() {
   context.globalCompositeOperation = 'source-over';
   if (white) {
     context.fillStyle = "rgba(255,255,255," + trail + ")";
+    context.fillRect(-(width/2), -(height/2), width, height);
   }
   else {
     context.fillStyle = "rgba(0,0,0," + trail + ")";
+    context.fillRect(-(width/2), -(height/2), width, height);
     context.globalCompositeOperation = 'lighter';
   }
-  context.fillRect(-(width/2), -(height/2), width, height);
   ms = (new Date).getTime();
   while (((new Date).getTime() - ms) < 28) {
     for (var i=0;i < 101;i++) {
