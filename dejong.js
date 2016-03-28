@@ -1,4 +1,4 @@
-var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, opt, colorr, colorb, colorg, trail, ms, pixels;
+var a, c, canvas, click, context, d, dejong, e, flage, flagg, height, i, mouseX, mouseY, speed, width, x, y, opt, colorr, colorb, colorg, trail, ms, pixels, white;
 var count = 0;
 
 colorr = 160;
@@ -26,6 +26,8 @@ flage = 0;
 flagg = 0;
 
 opt = 1;
+
+white = 0
 
 attractor = function(x, y, opt) {
   if (opt == 0) {      //Dejong
@@ -80,6 +82,9 @@ document.addEventListener('keydown', function(event) {
     }
     count = !count;
   }
+  else if (event.keycode == 119) {
+    white = !white;
+  }
   //return console.log("event.keyCode " + event.keyCode);
 });
 
@@ -124,9 +129,14 @@ setInterval(function() {
   }
   trail = (Math.sin(e)/4.2)+0.3;
   context.globalCompositeOperation = 'source-over';
-  context.fillStyle = "rgba(255,255,255," + trail + ")";
+  if (white) {
+    context.fillStyle = "rgba(255,255,255," + trail + ")";
+  }
+  else {
+    context.fillStyle = "rgba(0,0,0," + trail + ")";
+    context.globalCompositeOperation = 'lighter';
+  }
   context.fillRect(-(width/2), -(height/2), width, height);
-  //context.globalCompositeOperation = 'lighter';
   ms = (new Date).getTime();
   while (((new Date).getTime() - ms) < 28) {
     for (var i=0;i < 101;i++) {
