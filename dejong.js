@@ -124,7 +124,7 @@ setInterval(function() {
   }
   trail = (Math.sin(e)/4.2)+0.3;
   context.globalCompositeOperation = 'source-over';
-  context.fillStyle = "rgba(0,0,0," + trail + ")";
+  context.fillStyle = "rgba(255,255,255," + trail + ")";
   context.fillRect(-(width/2), -(height/2), width, height);
   context.globalCompositeOperation = 'lighter';
   ms = (new Date).getTime();
