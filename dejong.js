@@ -133,7 +133,7 @@ setInterval(function() {
   if (white) {
     context.fillStyle = "rgba(255,255,255," + trail + ")";
     context.fillRect(-(width/2), -(height/2), width, height);
-    context.globalCompositeOperation = 'overlay';
+    context.globalCompositeOperation = 'luminosity';
   }
   else {
     context.fillStyle = "rgba(0,0,0," + trail + ")";
