@@ -141,17 +141,15 @@ setInterval(function() {
   }
   ms = (new Date).getTime();
   while (((new Date).getTime() - ms) < 28) {
-    for (var i=0;i < 101;i++) {
-      r = Math.floor(Math.abs(x) * colorr);
-      b = Math.floor(Math.abs(y) * colorb);
-      g = Math.floor(Math.abs(x + y) * colorg);
-      context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
-      ref = attractor(x, y, opt);
-      x = ref[0];
-      y = ref[1];
-      context.fillRect(x, y, pixels, pixels);
-      context.stroke();
-      context.restore();
-    }
+    r = Math.floor(Math.abs(x) * colorr);
+    b = Math.floor(Math.abs(y) * colorb);
+    g = Math.floor(Math.abs(x + y) * colorg);
+    context.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 1)";
+    ref = attractor(x, y, opt);
+    x = ref[0];
+    y = ref[1];
+    context.fillRect(x, y, pixels, pixels);
+    context.stroke();
+    context.restore();
   }
 }, 0);
