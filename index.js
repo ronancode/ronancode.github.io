@@ -7,7 +7,7 @@ console.log(height);
 context = canvas.getContext('2d');
 
 context.fillStyle = ("rgba(255,0,0,1)");
-context.fillRect(0,0,50,50);
+context.fillRect((width/2),(height/2),50,50);
 
 var x = 1;
 var y = 1;
@@ -75,8 +75,8 @@ setInterval(function() {
 		points = attractor(x,y);
 		x = points[0];
 		y = points[1];
-        x_offset = (x*scale);
-        y_offset = (y*scale);
+        x_offset = (x*scale+(width/2));
+        y_offset = (y*scale+(height/2));
 		context.fillRect(x_offset,y_offset,pixel_size,pixel_size);
 		context.stroke();
 		context.restore();
