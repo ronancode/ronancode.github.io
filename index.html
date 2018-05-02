@@ -1,34 +1,23 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<body oncontextmenu="return false;">
-<style>
-html {
-  height: 100%;
-  width: 100%;
-}
-body {
-  background-color: #000;
-  overflow: hidden;
-  color: #aaaaaa;
-  font-size: 65%;
-  font-family: courier;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-canvas {
-  position: absolute;
-  cursor: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-</style>
-<p style="position: relative; z-index: 1;">click to randomize shape | right click to randomize color</p>
-<p style="position: relative; z-index: 1;">space for something amazing | w for a paradigm shift </p>
-<p id="attractorp1"; style="position: relative; z-index: 1"></p>
-<p id="attractorp2"; style="position: relative; z-index: 1"></p>
-<p id="colorp"; style="position: relative; z-index: 1"></p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-<script src="./dejong.js"></script>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+	<script src="index.js"></script>
+</head>
+<body>
+	<div class="flex-container">
+		<header>
+			<img src="header.png" id="header-img">
+		</header>
+		<nav class="nav">
+			<a href="#"><img src="music-nav.png" id="music-nav"></a>
+			<a href="#"><img src="art-nav.png" id="art-nav"></a>
+		</nav>
+		<article class="content">
+			<!-- <img src="crystal-emissary-0p5.png" id="emissary"> -->
+			<canvas id="render" width="500px" height="500px" "></canvas>
+		</article>
+		<footer><p>MAJOR WORLD 2018</p></footer>
+	</div>
 </body>
+</html>
