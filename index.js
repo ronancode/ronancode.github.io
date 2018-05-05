@@ -24,9 +24,8 @@ var flagg = 0;
 
 var speedx = 100;
 
-var scale = 60*(height/250);
+var scale = 60*(height/300);
 
-// context.fillStyle = "rgba(75,75,255,1)";
 // context.rect(0,0,width,height);
 // context.stroke;
 
@@ -72,7 +71,7 @@ setInterval(function() {
 		c = c - (Math.random() / speedx);
 		flagg = 0;
 	}
-    context.fillStyle = "rgba(255,255,255,0.25)";
+    context.fillStyle = "rgba(255,255,255,0.75)";
     context.fillRect(0,0, width, height);
 	init_time = (new Date).getTime();
 	while (((new Date).getTime() - init_time) < 28) {

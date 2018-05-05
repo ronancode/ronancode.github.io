@@ -18,23 +18,20 @@
     border-width: 1px;
     border-color: black;
     background-color: var(--main-color);
-    height: calc(100% - 60px);
     margin-left: auto;
     margin-right: auto;
-}
-  
-html {
-  height: 100%;
+    flex-grow: 1;
 }
 
 body {
+  display: flex;
 	background-color: var(--main-color);
 	font-family: sans-serif;
 	margin: 0;
 	text-align: center;
 	padding: 10px;
 	overflow: hidden;
-  height: 100%;
+  height: calc(100vh - 20px);
 }
 
 header {
@@ -92,9 +89,3 @@ footer {
 p.footer {
 	padding: 100%;
 }
-
-/*@media all and (min-width: 768px) {
-    .nav {text-align:center;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
-    .content {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
-    footer {-webkit-order:3;order:3;}
-}*/
