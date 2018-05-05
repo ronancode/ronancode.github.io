@@ -26,6 +26,7 @@ var speedx = 100;
 
 var scale = 60*(height/250);
 
+// context.fillStyle = "rgba(75,75,255,1)";
 // context.rect(0,0,width,height);
 // context.stroke;
 
