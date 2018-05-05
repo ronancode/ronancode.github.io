@@ -69,15 +69,14 @@ header {
 
 .content {
 	background-color: var(--light-color);
-	padding-top: 100px;
-	padding-bottom: 100px;
 	order: 3;
   flex: 2;
 }
   
 article #render {
-  width: 500px;
-  height: 500px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #barcode {

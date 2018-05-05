@@ -1,13 +1,14 @@
 var canvas = document.getElementById('render');
-var width = document.getElementById('render').offsetWidth;
-var height = document.getElementById('render').offsetHeight;
+var width = document.getElementById('fart').offsetWidth;
+var height = document.getElementById('fart').offsetHeight;
+
+canvas.height = height;
+canvas.width = width;
+
 console.log(width);
 console.log(height);
 
 context = canvas.getContext('2d');
-
-context.fillStyle = ("rgba(255,0,0,1)");
-context.fillRect((width/2),(height/2),50,50);
 
 var x = 1;
 var y = 1;
@@ -23,7 +24,10 @@ var flagg = 0;
 
 var speedx = 100;
 
-var scale = 60;
+var scale = 60*(height/250);
+
+// context.rect(0,0,width,height);
+// context.stroke;
 
 var a,e,c,d;
 a = Math.random() * 4;
