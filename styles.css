@@ -1,16 +1,13 @@
 :root {
 	--main-color: rgba(255,255,255,1);
 	--contrast-color: rgba(255,123,172,1); 
-/*	--contrast-color: rgba(233,252,16);*/
 	--light-color: rgba(255,255,255,1);
 	--dark-color: rgba(0,0,0,1);
 	--debug-color: rgba(0,255,0,1);
 }
 
 .flex-container {
-    /*display: -webkit-flex;*/
     display: flex;  
-    /*-webkit-flex-flow: row wrap;*/
     flex-flow: column nowrap;
     align-items: stretch;
     text-align: center;
@@ -24,14 +21,14 @@
 }
 
 body {
-  display: flex;
+  	display: flex;
 	background-color: var(--main-color);
 	font-family: sans-serif;
 	margin: 0;
 	text-align: center;
 	padding: 10px;
 	overflow: hidden;
-  height: calc(100vh - 20px);
+  	height: calc(100vh - 20px);
 }
 
 header {
@@ -67,7 +64,7 @@ header {
 .content {
 	background-color: var(--light-color);
 	order: 3;
-  flex: 2;
+  	flex: 10;
 }
   
 article #render {
@@ -76,16 +73,16 @@ article #render {
   margin-right: auto;
 }
 
-#barcode {
-	float: left;
-}
-
-footer {
-	color: white;
-	background-color: var(--contrast-color);
+#footer {
+	background-color: rgba(0,0,0,1);
 	order: 4;
+	-webkit-flex: 1 0 auto;
+	min-height: 0;
+	max-height: 50px;
 }
 
-p.footer {
-	padding: 100%;
+#footer p {
+	color: white;
+	margin: 0;
+	padding: 0;
 }
