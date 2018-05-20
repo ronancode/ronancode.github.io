@@ -2,21 +2,22 @@
 <html>
 <head>
 	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-	<div class="flex-container">
-		<header>
+	<div class="flex-container" id="top-container">
+		<header id="header">
 			<img src="header.png" id="header-img">
 		</header>
-		<nav class="nav">
-			<a href="#"><img src="music-nav.png" id="music-nav"></a>
+		<nav class="nav" id="nav">
+			<a href="music.html"><img src="music-nav.png" id="music-nav"></a>
 			<a href="#"><img src="art-nav.png" id="art-nav"></a>
 		</nav>
-		<article class="content" id="fart">
+		<article class="content" id="main">
 			<canvas id="render"></canvas>
 		</article>
 		<article id="footer">
-			<p>2018</p>
+			<img src="footer.png" id="footer-img">
 		</article>
 	</div>
 	<script src="index.js"></script>
