@@ -37,6 +37,10 @@ body {
 	text-align: center;
 }
 
+header {
+	padding-top: 10px;
+}
+
 #header-img {
 	max-width: 100%;
 }
